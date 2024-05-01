@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+        }
+        .cup{
+            position: relative;
+            margin-top: 20px;
+            border: 5px solid white;
+            width: 200px;
+            height: 250px;
+            border-radius: 35px;
+            border-top: none;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            box-shadow: inset 0 0 0 5px #000000;
+            overflow: hidden;
+        }
+        .wave{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: white;
+            box-shadow: inset 0 0 0 5px #000000;
+            border-radius: 30px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            overflow: hidden;
+        }
+        .wave:before,.wave::after{
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%,-75%);
+            background: black;
+        }
+        .wave:before{
+            border-radius: 45%;
+            animation:  animate 2.5s linear infinite , rise 2.5s linear infinite alternate;
+            background-color: rgba(0,0,0,1);
+        }
+        .wave::after{
+            border-radius: 45%;
+            animation:  animate 2.5s linear infinite , rise 2.5s linear infinite alternate;
+        }
+        @keyframes animate{
+            0%{
+                transform: translate(-50%,-75%) rotate(0deg);
+            }
+            100%{
+                transform: translate(-50%,-75%) rotate(360deg);
+            }
+        }
+        @keyframes rise{
+            0%{
+                top: 200px;
+            }
+            100%{
+                top: -50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cup">
+        <div class="wave"></div>
+        <div class="handle"></div>
+        <div class="flow"></div>
+    </div>
+</body>
+</html>
